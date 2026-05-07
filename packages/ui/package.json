@@ -1,0 +1,14 @@
+{
+  "name": "@nexus/ui",
+  "version": "0.0.1",
+  "description": "Nexus Design System component library",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build:types": "tsc -p tsconfig.json"
+  },
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
