@@ -1,17 +1,22 @@
-
-
 /** @type { import('@storybook/react-vite').StorybookConfig } */
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+
 const config = {
-  "stories": [
+  stories: [
     "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-  "addons": [
+  addons: [
     "@chromatic-com/storybook",
     "@storybook/addon-vitest",
     "@storybook/addon-a11y",
-    "@storybook/addon-docs"
+    "@storybook/addon-docs",
   ],
-  "framework": "@storybook/react-vite"
+  framework: "@storybook/react-vite",
+  viteFinal: (config) => {
+    config.plugins = config.plugins || [];
+    config.plugins.push(vanillaExtractPlugin());
+    return config;
+  },
 };
 export default config;
