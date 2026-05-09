@@ -32,6 +32,7 @@
     "vitest": "^4.1.5"
   },
   "dependencies": {
+    "@nexus/tokens": "workspace:*",
     "@nexus/ui": "workspace:*"
   }
 }

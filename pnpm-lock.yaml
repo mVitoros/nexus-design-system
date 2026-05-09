@@ -10,6 +10,9 @@ importers:
 
   apps/storybook:
     dependencies:
+      '@nexus/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       '@nexus/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -87,6 +90,12 @@ importers:
       '@nexus/tokens':
         specifier: workspace:*
         version: link:../tokens
+      '@vanilla-extract/css':
+        specifier: ^1.20.1
+        version: 1.20.1
+      '@vanilla-extract/sprinkles':
+        specifier: ^1.6.5
+        version: 1.6.5(@vanilla-extract/css@1.20.1)
     devDependencies:
       '@types/node':
         specifier: ^25.6.0
@@ -693,6 +702,11 @@ packages:
 
   '@vanilla-extract/private@1.0.9':
     resolution: {integrity: sha512-gT2jbfZuaaCLrAxwXbRgIhGhcXbRZCG3v4TTUnjw0EJ7ArdBRxkq4msNJkbuRkCgfIK5ATmprB5t9ljvLeFDEA==}
+
+  '@vanilla-extract/sprinkles@1.6.5':
+    resolution: {integrity: sha512-HOYidLONR/SeGk8NBAeI64I4gYdsMX9vJmniL13ZcLVwawyK0s2GUENEAcGA+GYLIoeyQB61UqmhqPodJry7zA==}
+    peerDependencies:
+      '@vanilla-extract/css': ^1.0.0
 
   '@vanilla-extract/vite-plugin@5.2.2':
     resolution: {integrity: sha512-AUyB4fDR2b/Mo0lcXhhlf6RxnDPYwFMyKKopalJ4BwQNKYzZSoTwHJ1PLPO9SKhpz7lzXc0Z18GHQZOewzl3YA==}
@@ -2198,6 +2212,10 @@ snapshots:
       - supports-color
 
   '@vanilla-extract/private@1.0.9': {}
+
+  '@vanilla-extract/sprinkles@1.6.5(@vanilla-extract/css@1.20.1)':
+    dependencies:
+      '@vanilla-extract/css': 1.20.1
 
   '@vanilla-extract/vite-plugin@5.2.2(@types/node@25.6.0)(esbuild@0.27.7)(vite@8.0.11(@types/node@25.6.0)(esbuild@0.27.7))':
     dependencies:
