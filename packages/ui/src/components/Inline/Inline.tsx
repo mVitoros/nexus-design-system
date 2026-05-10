@@ -1,10 +1,10 @@
 import type { ReactNode, JSX } from "react";
-import Box from "../Box/Box";
 import type { AlignItems, JustifyContent, Space } from "../../sprinkles.css";
+import { Box } from "../Box";
 
 type AllowedInlineElements = "div" | "section" | "article";
 
-type InlineProps = {
+export type InlineProps = {
   as?: Extract<keyof JSX.IntrinsicElements, AllowedInlineElements>;
   children: ReactNode;
   gap?: Space;
@@ -12,12 +12,10 @@ type InlineProps = {
   alignItems?: AlignItems;
 };
 
-const Inline = ({ children, ...rest }: InlineProps) => {
+export const Inline = ({ children, ...rest }: InlineProps) => {
   return (
     <Box {...rest} display="flex" flexDirection="row">
       {children}
     </Box>
   );
 };
-
-export default Inline;

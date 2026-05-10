@@ -1,13 +1,17 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { sprinkles, type Sprinkles } from "../../sprinkles.css";
 
-type BoxProps<T extends ElementType> = {
+export type BoxProps<T extends ElementType> = {
   as?: T;
   children?: ReactNode;
 } & Omit<ComponentPropsWithoutRef<T>, "as" | "children"> &
   Sprinkles;
 
-const Box = <T extends ElementType>({ as, children, ...rest }: BoxProps<T>) => {
+export const Box = <T extends ElementType>({
+  as,
+  children,
+  ...rest
+}: BoxProps<T>) => {
   const Component = as || "div";
 
   const sprinklesProps: Record<string, unknown> = {};
@@ -31,5 +35,3 @@ const Box = <T extends ElementType>({ as, children, ...rest }: BoxProps<T>) => {
     <Component className={classes} {...nativeProps} />
   );
 };
-
-export default Box;
