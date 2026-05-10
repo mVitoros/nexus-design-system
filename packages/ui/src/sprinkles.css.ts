@@ -45,3 +45,7 @@ const responsiveProperties = defineProperties({
 export const sprinkles = createSprinkles(responsiveProperties);
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];
+
+export type Space = keyof (typeof vars)["space"];
+export type AlignItems = Parameters<typeof sprinkles>[0]["alignItems"];
+export type JustifyContent = Parameters<typeof sprinkles>[0]["justifyContent"];

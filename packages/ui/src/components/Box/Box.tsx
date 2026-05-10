@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
-import { sprinkles, type Sprinkles } from "../sprinkles.css";
+import { sprinkles, type Sprinkles } from "../../sprinkles.css";
 
 type BoxProps<T extends ElementType> = {
   as?: T;
@@ -8,6 +8,8 @@ type BoxProps<T extends ElementType> = {
   Sprinkles;
 
 const Box = <T extends ElementType>({ as, children, ...rest }: BoxProps<T>) => {
+  const Component = as || "div";
+
   const sprinklesProps: Record<string, unknown> = {};
   const nativeProps: Record<string, unknown> = {};
 
@@ -20,8 +22,6 @@ const Box = <T extends ElementType>({ as, children, ...rest }: BoxProps<T>) => {
   }
 
   const classes = sprinkles(sprinklesProps);
-
-  const Component = as || "div";
 
   return children ? (
     <Component className={classes} {...nativeProps}>
