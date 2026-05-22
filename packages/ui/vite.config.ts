@@ -1,10 +1,31 @@
-import { dirname, resolve } from "node:path";
+import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react(), vanillaExtractPlugin()],
+  resolve:
+    command === "serve"
+      ? {
+          alias: [
+            {
+              find: /^@nexus\/tokens$/,
+              replacement: resolve(
+                import.meta.dirname,
+                "../tokens/src/index.ts",
+              ),
+            },
+            {
+              find: /^@nexus\/tokens\/styles\.css$/,
+              replacement: resolve(
+                import.meta.dirname,
+                "../tokens/src/index.ts",
+              ),
+            },
+          ],
+        }
+      : undefined,
   build: {
     lib: {
       entry: resolve(import.meta.dirname, "src/index.ts"),
@@ -21,4 +42,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
