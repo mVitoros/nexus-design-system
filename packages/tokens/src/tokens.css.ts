@@ -71,6 +71,83 @@ export const primitiveRadius = {
   full: "999px",
 } as const;
 
+export const primitiveTypography = {
+  fontFamily: {
+    sans: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    mono: 'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", monospace',
+  },
+  fontSize: {
+    0: "12px",
+    1: "14px",
+    2: "16px",
+    3: "18px",
+    4: "20px",
+    5: "22px",
+    6: "24px",
+  },
+  fontWeight: {
+    regular: 400,
+    bold: 600,
+    bolder: 900,
+  },
+  lineHeight: {
+    tight: 1.2,
+    normal: 1.5,
+    loose: 1.8,
+  },
+};
+
+export type TypohgraphyTypes = typeof primitiveTypography;
+
+const sharedTypography = {
+  heading: {
+    xl: {
+      fontFamily: primitiveTypography.fontFamily.sans,
+      fontSize: primitiveTypography.fontSize[6],
+      fontWeight: String(primitiveTypography.fontWeight.bolder),
+      lineHeight: String(primitiveTypography.lineHeight.tight),
+    },
+    lg: {
+      fontFamily: primitiveTypography.fontFamily.sans,
+      fontSize: primitiveTypography.fontSize[5],
+      fontWeight: String(primitiveTypography.fontWeight.bold),
+      lineHeight: String(primitiveTypography.lineHeight.tight),
+    },
+    md: {
+      fontFamily: primitiveTypography.fontFamily.sans,
+      fontSize: primitiveTypography.fontSize[4],
+      fontWeight: String(primitiveTypography.fontWeight.bold),
+      lineHeight: String(primitiveTypography.lineHeight.tight),
+    },
+    sm: {
+      fontFamily: primitiveTypography.fontFamily.sans,
+      fontSize: primitiveTypography.fontSize[3],
+      fontWeight: String(primitiveTypography.fontWeight.bold),
+      lineHeight: String(primitiveTypography.lineHeight.tight),
+    },
+  },
+  body: {
+    md: {
+      fontFamily: primitiveTypography.fontFamily.sans,
+      fontSize: primitiveTypography.fontSize[2],
+      fontWeight: String(primitiveTypography.fontWeight.regular),
+      lineHeight: String(primitiveTypography.lineHeight.normal),
+    },
+    sm: {
+      fontFamily: primitiveTypography.fontFamily.sans,
+      fontSize: primitiveTypography.fontSize[1],
+      fontWeight: String(primitiveTypography.fontWeight.regular),
+      lineHeight: String(primitiveTypography.lineHeight.normal),
+    },
+    xs: {
+      fontFamily: primitiveTypography.fontFamily.sans,
+      fontSize: primitiveTypography.fontSize[0],
+      fontWeight: String(primitiveTypography.fontWeight.regular),
+      lineHeight: String(primitiveTypography.lineHeight.normal),
+    },
+  },
+} as const;
+
 export const vars = createThemeContract({
   color: {
     background: null,
@@ -100,6 +177,54 @@ export const vars = createThemeContract({
     md: null,
     lg: null,
     full: null,
+  },
+  typography: {
+    heading: {
+      xl: {
+        fontFamily: null,
+        fontSize: null,
+        fontWeight: null,
+        lineHeight: null,
+      },
+      lg: {
+        fontFamily: null,
+        fontSize: null,
+        fontWeight: null,
+        lineHeight: null,
+      },
+      md: {
+        fontFamily: null,
+        fontSize: null,
+        fontWeight: null,
+        lineHeight: null,
+      },
+      sm: {
+        fontFamily: null,
+        fontSize: null,
+        fontWeight: null,
+        lineHeight: null,
+      },
+    },
+    body: {
+      md: {
+        fontFamily: null,
+        fontSize: null,
+        fontWeight: null,
+        lineHeight: null,
+      },
+      sm: {
+        fontFamily: null,
+        fontSize: null,
+        fontWeight: null,
+        lineHeight: null,
+      },
+      xs: {
+        fontFamily: null,
+        fontSize: null,
+        fontWeight: null,
+        lineHeight: null,
+      },
+    },
   },
 });
 
@@ -133,6 +258,7 @@ export const lightTheme = createTheme(vars, {
     lg: primitiveRadius.lg,
     full: primitiveRadius.full,
   },
+  typography: sharedTypography,
 });
 
 export const darkTheme = createTheme(vars, {
@@ -165,4 +291,5 @@ export const darkTheme = createTheme(vars, {
     lg: primitiveRadius.lg,
     full: primitiveRadius.full,
   },
+  typography: sharedTypography,
 });
