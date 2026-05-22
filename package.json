@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "pnpm --filter @nexus/storybook run storybook",
+    "build:ui": "pnpm --filter @nexus/ui run build:dist",
+    "build:tokens": "pnpm --filter @nexus/tokens run build:dist",
+    "build:storybook": "pnpm --filter @nexus/storybook run build:storybook",
+    "tsc": "pnpm --filter @nexus/storybook run typecheck && pnpm --filter @nexus/tokens run typecheck && pnpm --filter @nexus/ui run typecheck",
+    "tsc:storybook": "pnpm --filter @nexus/storybook run typecheck",
+    "tsc:ui": "pnpm --filter @nexus/ui run typecheck",
+    "tsc:tokens": "pnpm --filter @nexus/tokens run typecheck"
   },
   "keywords": [],
   "author": "",
