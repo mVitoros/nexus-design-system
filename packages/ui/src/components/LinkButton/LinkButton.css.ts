@@ -3,7 +3,6 @@ import { style } from "@vanilla-extract/css";
 
 export const linkButtonStyles = style({
   width: "max-content",
-  paddingBottom: "1px",
   textDecoration: "none",
   selectors: {
     "&::before": {
@@ -11,7 +10,7 @@ export const linkButtonStyles = style({
       position: "absolute",
       left: 0,
       right: 0,
-      bottom: 0,
+      bottom: "1px",
       height: "1px",
       background: "currentColor",
     },

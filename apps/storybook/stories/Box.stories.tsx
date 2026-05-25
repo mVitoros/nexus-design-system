@@ -1,9 +1,30 @@
-import { Box } from "@nexus/ui";
+import { Box, Typography } from "@nexus/ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ComponentProps } from "react";
+
+const renderBoxWithTypography = (args: ComponentProps<typeof Box>) => {
+  if (args.as === "input") {
+    const { children: _children, ...inputArgs } = args;
+    return <Box {...inputArgs} />;
+  }
+
+  if (typeof args.children === "string") {
+    return (
+      <Box {...args}>
+        <Typography as="span" fontStyle="bodyMd">
+          {args.children}
+        </Typography>
+      </Box>
+    );
+  }
+
+  return <Box {...args} />;
+};
 
 const meta: Meta<typeof Box> = {
   title: "Nexus UI/Box",
   component: Box,
+  render: renderBoxWithTypography,
   args: {
     as: "div",
     children: "Box content",
@@ -50,14 +71,7 @@ export default meta;
 type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
-  render: (args) => {
-    if (args.as === "input") {
-      const { children: _children, ...inputArgs } = args;
-      return <Box {...inputArgs} />;
-    }
-
-    return <Box {...args} />;
-  },
+  render: renderBoxWithTypography,
 };
 
 export const AsAnchor: Story = {
@@ -89,8 +103,10 @@ export const AsInputCheckbox: Story = {
   render: () => (
     <Box display="flex" alignItems="center" gap="sm">
       <Box as="input" type="checkbox" aria-labelledby="id1" />
-      <Box as="label" id="id1">
-        Accept terms
+      <Box as="label" id="id1" display="inline-block">
+        <Typography as="span" fontStyle="bodyMd">
+          Accept terms
+        </Typography>
       </Box>
     </Box>
   ),
@@ -116,10 +132,14 @@ export const CardRowLayout: Story = {
       borderRadius="md"
     >
       <Box background="surface" p="md" borderRadius="sm" color="text">
-        Card A
+        <Typography as="span" fontStyle="bodyMd">
+          Card A
+        </Typography>
       </Box>
       <Box background="surface" p="md" borderRadius="sm" color="text">
-        Card B
+        <Typography as="span" fontStyle="bodyMd">
+          Card B
+        </Typography>
       </Box>
     </Box>
   ),
@@ -129,25 +149,39 @@ export const SpacingScalePreview: Story = {
   render: () => (
     <Box display="grid" gap="sm">
       <Box background="surfaceMuted" p="xxs" borderRadius="sm">
-        p="xxs"
+        <Typography as="span" fontStyle="bodySm">
+          p="xxs"
+        </Typography>
       </Box>
       <Box background="surfaceMuted" p="xs" borderRadius="sm">
-        p="xs"
+        <Typography as="span" fontStyle="bodySm">
+          p="xs"
+        </Typography>
       </Box>
       <Box background="surfaceMuted" p="sm" borderRadius="sm">
-        p="sm"
+        <Typography as="span" fontStyle="bodySm">
+          p="sm"
+        </Typography>
       </Box>
       <Box background="surfaceMuted" p="md" borderRadius="sm">
-        p="md"
+        <Typography as="span" fontStyle="bodySm">
+          p="md"
+        </Typography>
       </Box>
       <Box background="surfaceMuted" p="lg" borderRadius="sm">
-        p="lg"
+        <Typography as="span" fontStyle="bodySm">
+          p="lg"
+        </Typography>
       </Box>
       <Box background="surfaceMuted" p="xl" borderRadius="sm">
-        p="xl"
+        <Typography as="span" fontStyle="bodySm">
+          p="xl"
+        </Typography>
       </Box>
       <Box background="surfaceMuted" p="xxl" borderRadius="sm">
-        p="xxl"
+        <Typography as="span" fontStyle="bodySm">
+          p="xxl"
+        </Typography>
       </Box>
     </Box>
   ),
@@ -157,13 +191,19 @@ export const PolymorphicShowcase: Story = {
   render: () => (
     <Box display="grid" gap="sm">
       <Box as="div" background="surfaceMuted" p="sm" borderRadius="sm">
-        div element
+        <Typography as="span" fontStyle="bodyMd">
+          div element
+        </Typography>
       </Box>
       <Box as="section" background="surfaceMuted" p="sm" borderRadius="sm">
-        section element
+        <Typography as="span" fontStyle="bodyMd">
+          section element
+        </Typography>
       </Box>
       <Box as="a" href="https://example.com" color="primary">
-        anchor element
+        <Typography as="span" fontStyle="bodyMd">
+          anchor element
+        </Typography>
       </Box>
       <Box
         as="button"
@@ -174,7 +214,9 @@ export const PolymorphicShowcase: Story = {
         py="xs"
         borderRadius="sm"
       >
-        button element
+        <Typography as="span" fontStyle="bodyMd">
+          button element
+        </Typography>
       </Box>
     </Box>
   ),

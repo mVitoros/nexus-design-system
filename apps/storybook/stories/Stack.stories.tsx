@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Stack, Box } from "@nexus/ui";
+import { Stack, Box, Typography } from "@nexus/ui";
 
 const meta: Meta<typeof Stack> = {
   title: "Layout/Stack",
@@ -15,7 +15,9 @@ type Story = StoryObj<typeof meta>;
 
 const Item = ({ label }: { label: string }) => (
   <Box p="md" background="primary" color="primaryText" borderRadius="md">
-    {label}
+    <Typography as="span" fontStyle="bodyMd">
+      {label}
+    </Typography>
   </Box>
 );
 
@@ -92,7 +94,9 @@ export const LargeGapExample: Story = {
 export const AsSection: Story = {
   render: () => (
     <Stack as="section" gap="lg">
-      <Box as="h2">Section Title</Box>
+      <Typography as="h2" fontStyle="headingMd">
+        Section Title
+      </Typography>
       <Item label="Content 1" />
       <Item label="Content 2" />
       <Item label="Content 3" />

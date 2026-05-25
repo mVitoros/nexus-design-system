@@ -1,9 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Box, LinkButton, Stack, Typography } from "@nexus/ui";
+import type { ComponentProps } from "react";
+
+const renderLinkButtonWithTypography = (
+  args: ComponentProps<typeof LinkButton>,
+) => {
+  if (typeof args.children === "string") {
+    return (
+      <LinkButton {...args}>
+        <Typography as="span" fontStyle="bodyMd">
+          {args.children}
+        </Typography>
+      </LinkButton>
+    );
+  }
+
+  return <LinkButton {...args} />;
+};
 
 const meta: Meta<typeof LinkButton> = {
   title: "Nexus UI/LinkButton",
   component: LinkButton,
+  render: renderLinkButtonWithTypography,
   args: {
     children: "Learn more",
     href: "https://example.com",
@@ -54,9 +72,17 @@ export const ExternalNavigation: Story = {
 export const InParagraph: Story = {
   render: () => (
     <Box as="p" color="text">
-      This is a sentence with an inline{" "}
-      <LinkButton href="#">LinkButton</LinkButton> that stays aligned with
-      surrounding text.
+      <Typography as="span" fontStyle="bodyMd">
+        This is a sentence with an inline
+      </Typography>{" "}
+      <LinkButton href="#">
+        <Typography as="span" fontStyle="bodyMd">
+          LinkButton
+        </Typography>
+      </LinkButton>{" "}
+      <Typography as="span" fontStyle="bodyMd">
+        that stays aligned with surrounding text.
+      </Typography>
     </Box>
   ),
 };
@@ -64,9 +90,21 @@ export const InParagraph: Story = {
 export const LinkList: Story = {
   render: () => (
     <Stack as="section" gap="sm" aria-label="Resource links">
-      <LinkButton href="/guidelines">Design guidelines</LinkButton>
-      <LinkButton href="/components">Component library</LinkButton>
-      <LinkButton href="/tokens">Design tokens</LinkButton>
+      <LinkButton href="/guidelines">
+        <Typography as="span" fontStyle="bodyMd">
+          Design guidelines
+        </Typography>
+      </LinkButton>
+      <LinkButton href="/components">
+        <Typography as="span" fontStyle="bodyMd">
+          Component library
+        </Typography>
+      </LinkButton>
+      <LinkButton href="/tokens">
+        <Typography as="span" fontStyle="bodyMd">
+          Design tokens
+        </Typography>
+      </LinkButton>
     </Stack>
   ),
 };

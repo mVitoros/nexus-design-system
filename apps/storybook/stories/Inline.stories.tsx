@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Inline, Box } from "@nexus/ui";
+import { Inline, Box, Typography } from "@nexus/ui";
 
 const meta: Meta<typeof Inline> = {
   title: "Layout/Inline",
@@ -15,7 +15,9 @@ type Story = StoryObj<typeof meta>;
 
 const Item = ({ label }: { label: string }) => (
   <Box p="md" background="success" color="primaryText" borderRadius="md">
-    {label}
+    <Typography as="span" fontStyle="bodyMd">
+      {label}
+    </Typography>
   </Box>
 );
 
@@ -54,7 +56,9 @@ export const CenteredVertically: Story = {
     <Inline gap="md" alignItems="center">
       <Item label="Item 1" />
       <Box p="md" background="primary" color="primaryText" borderRadius="md">
-        Taller Item
+        <Typography as="span" fontStyle="bodyMd">
+          Taller Item
+        </Typography>
       </Box>
       <Item label="Item 3" />
     </Inline>
@@ -94,7 +98,9 @@ export const ButtonGroup: Story = {
         background="primary"
         color="primaryText"
       >
-        Primary
+        <Typography as="span" fontStyle="bodyMd">
+          Primary
+        </Typography>
       </Box>
       <Box
         as="button"
@@ -103,7 +109,9 @@ export const ButtonGroup: Story = {
         background="surface"
         color="text"
       >
-        Secondary
+        <Typography as="span" fontStyle="bodyMd">
+          Secondary
+        </Typography>
       </Box>
       <Box
         as="button"
@@ -112,7 +120,9 @@ export const ButtonGroup: Story = {
         background="border"
         color="text"
       >
-        Tertiary
+        <Typography as="span" fontStyle="bodyMd">
+          Tertiary
+        </Typography>
       </Box>
     </Inline>
   ),
@@ -122,14 +132,30 @@ export const BreadcrumbNavigation: Story = {
   render: () => (
     <Inline gap="sm" alignItems="center">
       <Box as="a" href="#" color="primary">
-        Home
+        <Typography as="span" fontStyle="bodyMd">
+          Home
+        </Typography>
       </Box>
-      <Box color="textMuted">/</Box>
+      <Box color="textMuted">
+        <Typography as="span" fontStyle="bodyMd">
+          /
+        </Typography>
+      </Box>
       <Box as="a" href="#" color="primary">
-        Components
+        <Typography as="span" fontStyle="bodyMd">
+          Components
+        </Typography>
       </Box>
-      <Box color="textMuted">/</Box>
-      <Box color="text">Inline</Box>
+      <Box color="textMuted">
+        <Typography as="span" fontStyle="bodyMd">
+          /
+        </Typography>
+      </Box>
+      <Box color="text">
+        <Typography as="span" fontStyle="bodyMd">
+          Inline
+        </Typography>
+      </Box>
     </Inline>
   ),
 };

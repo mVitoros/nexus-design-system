@@ -12,7 +12,8 @@
     "tsc": "pnpm --filter @nexus/storybook run typecheck && pnpm --filter @nexus/tokens run typecheck && pnpm --filter @nexus/ui run typecheck",
     "tsc:storybook": "pnpm --filter @nexus/storybook run typecheck",
     "tsc:ui": "pnpm --filter @nexus/ui run typecheck",
-    "tsc:tokens": "pnpm --filter @nexus/tokens run typecheck"
+    "tsc:tokens": "pnpm --filter @nexus/tokens run typecheck",
+    "build": "pnpm build:tokens && pnpm build:ui && pnpm build:storybook"
   },
   "keywords": [],
   "author": "",
