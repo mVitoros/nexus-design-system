@@ -26,12 +26,15 @@ export const Box = <T extends ElementType>({
   }
 
   const classes = sprinkles(sprinklesProps);
+  const { className, ...otherNativeProps } = nativeProps;
+  const mergedClasses =
+    typeof className === "string" && className.length > 0
+      ? `${classes} ${className}`
+      : classes;
 
-  return children ? (
-    <Component className={classes} {...nativeProps}>
+  return (
+    <Component {...otherNativeProps} className={mergedClasses}>
       {children}
     </Component>
-  ) : (
-    <Component className={classes} {...nativeProps} />
   );
 };

@@ -10,6 +10,16 @@ const responsiveProperties = defineProperties({
   defaultCondition: "mobile",
   properties: {
     display: ["none", "block", "inline", "inline-block", "flex", "grid"],
+    position: [
+      "absolute",
+      "fixed",
+      "relative",
+      "initial",
+      "inherit",
+      "unset",
+      "static",
+      "sticky",
+    ],
     flexDirection: ["row", "column"],
     justifyContent: [
       "flex-start",
