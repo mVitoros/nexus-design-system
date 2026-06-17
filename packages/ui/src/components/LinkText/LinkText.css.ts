@@ -1,7 +1,10 @@
 import { vars } from "@nexus/tokens";
 import { style } from "@vanilla-extract/css";
 
-export const linkButtonStyles = style({
+export const textLinkStyles = style({
+  color: vars.color.primaryLink,
+  display: "inline-block",
+  position: "relative",
   width: "max-content",
   textDecoration: "none",
   selectors: {
