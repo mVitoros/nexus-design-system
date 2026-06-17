@@ -59,3 +59,7 @@ export type Sprinkles = Parameters<typeof sprinkles>[0];
 export type Space = keyof (typeof vars)["space"];
 export type AlignItems = Parameters<typeof sprinkles>[0]["alignItems"];
 export type JustifyContent = Parameters<typeof sprinkles>[0]["justifyContent"];
+
+export type IconSize = keyof (typeof vars)["icon"]["size"];
+export type StrokeWidth = keyof (typeof vars)["icon"]["strokeWidth"];
+export type IconColor = keyof (typeof vars)["icon"]["color"];

@@ -97,7 +97,20 @@ export const primitiveTypography = {
   },
 };
 
-export type TypohgraphyTypes = typeof primitiveTypography;
+export const primitiveIcon = {
+  size: {
+    small: 16,
+    regular: 20,
+    large: 24,
+  },
+  strokeWidth: {
+    faint: 1,
+    medium: 1.5,
+    regular: 2,
+  },
+};
+
+export type TypographyTypes = typeof primitiveTypography;
 
 const sharedTypography = {
   heading: {
@@ -148,6 +161,38 @@ const sharedTypography = {
   },
 } as const;
 
+const lightSemanticColors = {
+  background: primitiveColors.slate[0],
+  surface: "#ffffff",
+  surfaceMuted: primitiveColors.slate[1],
+  border: primitiveColors.slate[3],
+  text: primitiveColors.slate[9],
+  textMuted: primitiveColors.slate[7],
+  primary: primitiveColors.blue[6],
+  primaryHover: primitiveColors.blue[7],
+  primaryText: "#ffffff",
+  primaryLink: primitiveColors.blue[9],
+  success: primitiveColors.green[6],
+  danger: primitiveColors.red[6],
+  focusRing: primitiveColors.blue[3],
+} as const;
+
+const darkSemanticColors = {
+  background: primitiveColors.slate[9],
+  surface: primitiveColors.slate[8],
+  surfaceMuted: primitiveColors.slate[7],
+  border: primitiveColors.slate[6],
+  text: primitiveColors.slate[0],
+  textMuted: primitiveColors.slate[3],
+  primary: primitiveColors.blue[4],
+  primaryHover: primitiveColors.blue[3],
+  primaryText: primitiveColors.slate[9],
+  primaryLink: primitiveColors.slate[8],
+  success: primitiveColors.green[4],
+  danger: primitiveColors.red[4],
+  focusRing: primitiveColors.blue[2],
+} as const;
+
 export const vars = createThemeContract({
   color: {
     background: null,
@@ -178,6 +223,26 @@ export const vars = createThemeContract({
     md: null,
     lg: null,
     full: null,
+  },
+  icon: {
+    size: {
+      small: null,
+      regular: null,
+      large: null,
+    },
+    strokeWidth: {
+      faint: null,
+      medium: null,
+      regular: null,
+    },
+    color: {
+      default: null,
+      muted: null,
+      brand: null,
+      success: null,
+      danger: null,
+      inverse: null,
+    },
   },
   typography: {
     heading: {
@@ -230,21 +295,7 @@ export const vars = createThemeContract({
 });
 
 export const lightTheme = createTheme(vars, {
-  color: {
-    background: primitiveColors.slate[0],
-    surface: "#ffffff",
-    surfaceMuted: primitiveColors.slate[1],
-    border: primitiveColors.slate[3],
-    text: primitiveColors.slate[9],
-    textMuted: primitiveColors.slate[7],
-    primary: primitiveColors.blue[6],
-    primaryHover: primitiveColors.blue[7],
-    primaryText: "#ffffff",
-    primaryLink: primitiveColors.blue[9],
-    success: primitiveColors.green[6],
-    danger: primitiveColors.red[6],
-    focusRing: primitiveColors.blue[3],
-  },
+  color: lightSemanticColors,
   space: {
     xxs: primitiveSpace.xxs,
     xs: primitiveSpace.xs,
@@ -259,26 +310,32 @@ export const lightTheme = createTheme(vars, {
     md: primitiveRadius.md,
     lg: primitiveRadius.lg,
     full: primitiveRadius.full,
+  },
+  icon: {
+    size: {
+      small: String(primitiveIcon.size.small),
+      regular: String(primitiveIcon.size.regular),
+      large: String(primitiveIcon.size.large),
+    },
+    strokeWidth: {
+      faint: String(primitiveIcon.strokeWidth.faint),
+      medium: String(primitiveIcon.strokeWidth.medium),
+      regular: String(primitiveIcon.strokeWidth.regular),
+    },
+    color: {
+      default: lightSemanticColors.text,
+      muted: lightSemanticColors.textMuted,
+      brand: lightSemanticColors.primary,
+      success: lightSemanticColors.success,
+      danger: lightSemanticColors.danger,
+      inverse: lightSemanticColors.primaryText,
+    },
   },
   typography: sharedTypography,
 });
 
 export const darkTheme = createTheme(vars, {
-  color: {
-    background: primitiveColors.slate[9],
-    surface: primitiveColors.slate[8],
-    surfaceMuted: primitiveColors.slate[7],
-    border: primitiveColors.slate[6],
-    text: primitiveColors.slate[0],
-    textMuted: primitiveColors.slate[3],
-    primary: primitiveColors.blue[4],
-    primaryHover: primitiveColors.blue[3],
-    primaryText: primitiveColors.slate[9],
-    primaryLink: primitiveColors.slate[8],
-    success: primitiveColors.green[4],
-    danger: primitiveColors.red[4],
-    focusRing: primitiveColors.blue[2],
-  },
+  color: darkSemanticColors,
   space: {
     xxs: primitiveSpace.xxs,
     xs: primitiveSpace.xs,
@@ -293,6 +350,26 @@ export const darkTheme = createTheme(vars, {
     md: primitiveRadius.md,
     lg: primitiveRadius.lg,
     full: primitiveRadius.full,
+  },
+  icon: {
+    size: {
+      small: String(primitiveIcon.size.small),
+      regular: String(primitiveIcon.size.regular),
+      large: String(primitiveIcon.size.large),
+    },
+    strokeWidth: {
+      faint: String(primitiveIcon.strokeWidth.faint),
+      medium: String(primitiveIcon.strokeWidth.medium),
+      regular: String(primitiveIcon.strokeWidth.regular),
+    },
+    color: {
+      default: darkSemanticColors.text,
+      muted: darkSemanticColors.textMuted,
+      brand: darkSemanticColors.primary,
+      success: darkSemanticColors.success,
+      danger: darkSemanticColors.danger,
+      inverse: darkSemanticColors.primaryText,
+    },
   },
   typography: sharedTypography,
 });

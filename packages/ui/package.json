@@ -39,6 +39,7 @@
   "dependencies": {
     "@nexus/tokens": "workspace:*",
     "@vanilla-extract/css": "^1.20.1",
-    "@vanilla-extract/sprinkles": "^1.6.5"
+    "@vanilla-extract/sprinkles": "^1.6.5",
+    "lucide-react": "^1.20.0"
   }
 }
