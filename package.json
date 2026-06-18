@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "pnpm --filter @nexus/ui run test",
+    "ctest": "pnpm --filter @nexus/ui run ctest",
     "storybook": "pnpm --filter @nexus/storybook run storybook",
     "build:ui": "pnpm --filter @nexus/ui run build:dist",
     "build:tokens": "pnpm --filter @nexus/tokens run build:dist",

@@ -11,7 +11,13 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "target": "esnext",
-    "types": ["node", "react"],
+    "types": [
+      "node",
+      "react",
+      "vitest",
+      "@testing-library/jest-dom",
+      "@testing-library/react"
+    ],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

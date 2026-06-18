@@ -12,10 +12,15 @@ export type IconProps = {
   size?: IconSize;
   strokeWidth?: StrokeWidth;
   color?: IconColor;
-  absoluteStrokeWidth?: boolean;
+  ariaLabel?: string;
 } & Omit<
   LucideProps,
-  "name" | "size" | "strokeWidth" | "color" | "absoluteStrokeWidth"
+  | "name"
+  | "size"
+  | "strokeWidth"
+  | "color"
+  | "absoluteStrokeWidth"
+  | "aria-label"
 >;
 
 export const Icon = ({
@@ -23,7 +28,7 @@ export const Icon = ({
   size = "regular",
   strokeWidth = "regular",
   color = "brand",
-  absoluteStrokeWidth = false,
+  ariaLabel,
   ...rest
 }: IconProps) => {
   const IconComponent = iconRegistry[name];
@@ -33,7 +38,9 @@ export const Icon = ({
       size={vars.icon.size[size]}
       strokeWidth={vars.icon.strokeWidth[strokeWidth]}
       color={vars.icon.color[color]}
-      absoluteStrokeWidth={absoluteStrokeWidth}
+      aria-label={ariaLabel}
+      role={ariaLabel ? "img" : undefined}
+      aria-hidden={ariaLabel ? false : true}
       {...rest}
     />
   );
