@@ -1,0 +1,14 @@
+{
+  // Shared TypeScript baseline for the monorepo.
+  "compilerOptions": {
+    "target": "esnext",
+    "sourceMap": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  }
+}
