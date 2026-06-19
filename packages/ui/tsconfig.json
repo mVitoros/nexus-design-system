@@ -48,5 +48,12 @@
     "moduleDetection": "force",
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": [
+    "src/**/*.stories.ts",
+    "src/**/*.stories.tsx",
+    "src/**/*.mdx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
+  ]
 }

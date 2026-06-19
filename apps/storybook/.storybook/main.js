@@ -4,8 +4,7 @@ import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 const config = {
   stories: [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../../../packages/ui/src/components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
     "@chromatic-com/storybook",

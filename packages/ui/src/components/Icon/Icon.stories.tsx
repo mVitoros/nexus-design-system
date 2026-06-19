@@ -1,5 +1,5 @@
 import { Icon } from "@nexus/ui";
-import { Meta, StoryObj } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta = {
   title: "Nexus UI/Icon",
