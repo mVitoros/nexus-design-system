@@ -5,6 +5,8 @@
   "scripts": {
     "clean": "node -e \"require('node:fs').rmSync('dist',{ recursive: true, force: true })\"",
     "build": "vite build",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" \"test/**/*.{ts,tsx}\"",
+    "lint:fix": "pnpm run lint -- --fix",
     "typecheck": "tsc -p tsconfig.json",
     "build:types": "pnpm run clean && tsc -p tsconfig.build.json",
     "build:dist": "pnpm run clean && vite build && tsc -p tsconfig.build.json",

@@ -4,6 +4,8 @@
   "description": "",
   "scripts": {
     "build": "vite build",
+    "lint": "eslint \"src/**/*.ts\"",
+    "lint:fix": "pnpm run lint -- --fix",
     "typecheck": "tsc --noEmit",
     "build:types": "tsc -p tsconfig.json",
     "build:dist": "vite build && tsc -p tsconfig.json"

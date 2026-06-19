@@ -2,7 +2,6 @@ import {
   createContext,
   forwardRef,
   useContext,
-  type ComponentPropsWithoutRef,
   type ComponentPropsWithRef,
   type ComponentType,
   type ForwardRefRenderFunction,

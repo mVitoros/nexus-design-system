@@ -6,6 +6,11 @@
   "scripts": {
     "test": "pnpm --filter @nexus/ui run test",
     "ctest": "pnpm --filter @nexus/ui run ctest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:ui": "pnpm --filter @nexus/ui run lint",
+    "lint:tokens": "pnpm --filter @nexus/tokens run lint",
+    "lint:storybook": "pnpm --filter @nexus/storybook run lint",
     "storybook": "pnpm --filter @nexus/storybook run storybook",
     "build:ui": "pnpm --filter @nexus/ui run build:dist",
     "build:tokens": "pnpm --filter @nexus/tokens run build:dist",
@@ -21,6 +26,12 @@
   "license": "ISC",
   "packageManager": "pnpm@10.33.4",
   "devDependencies": {
-    "typescript": "^6.0.3"
+    "@eslint/js": "^9.39.4",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.6.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.1"
   }
 }

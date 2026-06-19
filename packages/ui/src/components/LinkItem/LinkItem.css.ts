@@ -1,4 +1,3 @@
-import { vars } from "@nexus/tokens";
 import { style } from "@vanilla-extract/css";
 
 export const itemLinkStyles = style({
