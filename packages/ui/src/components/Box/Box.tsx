@@ -5,8 +5,6 @@ import {
   type ReactNode,
 } from "react";
 import { sprinkles, type Sprinkles } from "../../sprinkles.css";
-import { Icon } from "../Icon";
-import { vars } from "@nexus/tokens";
 
 type PolymorphicRef<T extends ElementType> = ComponentPropsWithRef<T>["ref"];
 
@@ -45,7 +43,6 @@ export const BoxInner = <T extends ElementType>(
   return (
     <Component {...otherNativeProps} className={mergedClasses} ref={ref}>
       {children}
-      <Icon name="home" />
     </Component>
   );
 };
