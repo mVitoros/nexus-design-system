@@ -19,7 +19,8 @@
     "tsc:storybook": "pnpm --filter @nexus/storybook run typecheck",
     "tsc:ui": "pnpm --filter @nexus/ui run typecheck",
     "tsc:tokens": "pnpm --filter @nexus/tokens run typecheck",
-    "build": "pnpm build:tokens && pnpm build:ui && pnpm build:storybook"
+    "build": "pnpm build:tokens && pnpm build:ui && pnpm build:storybook",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,8 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.61.1"
   }
