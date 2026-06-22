@@ -14,6 +14,8 @@ export type BoxProps<T extends ElementType> = {
 } & Omit<ComponentPropsWithRef<T>, "as" | "children"> &
   Sprinkles;
 
+export type BoxAs<T extends ElementType> = NonNullable<BoxProps<T>["as"]>;
+
 export const BoxInner = <T extends ElementType>(
   { as, children, ...rest }: BoxProps<T>,
   ref: PolymorphicRef<T>,

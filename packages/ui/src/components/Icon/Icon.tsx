@@ -11,7 +11,7 @@ export type IconProps = {
   name: IconName;
   size?: IconSize;
   strokeWidth?: StrokeWidth;
-  color?: IconColor;
+  color?: IconColor | "inherit";
   ariaLabel?: string;
 } & Omit<
   LucideProps,
@@ -37,7 +37,7 @@ export const Icon = ({
     <IconComponent
       size={vars.icon.size[size]}
       strokeWidth={vars.icon.strokeWidth[strokeWidth]}
-      color={vars.icon.color[color]}
+      color={color === "inherit" ? undefined : vars.icon.color[color]}
       aria-label={ariaLabel}
       role={ariaLabel ? "img" : undefined}
       aria-hidden={ariaLabel ? false : true}

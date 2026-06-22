@@ -39,6 +39,9 @@ const responsiveProperties = defineProperties({
     marginLeft: vars.space,
     marginRight: vars.space,
     borderRadius: vars.radius,
+    borderColor: vars.color,
+    borderWidth: ["1px", "2px", "3px"],
+    borderStyle: ["solid"],
     background: vars.color,
     color: vars.color,
   },
@@ -49,6 +52,7 @@ const responsiveProperties = defineProperties({
     m: ["marginTop", "marginBottom", "marginLeft", "marginRight"],
     mx: ["marginLeft", "marginRight"],
     my: ["marginTop", "marginBottom"],
+    border: ["borderWidth", "borderStyle", "borderColor"],
   },
 });
 
