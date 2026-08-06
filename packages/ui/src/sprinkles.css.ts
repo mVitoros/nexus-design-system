@@ -1,11 +1,13 @@
 import { vars } from "@nexus/tokens";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
+import { mediaQueries } from "./breakpoints";
 
 const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
-    tablet: { "@media": "screen and (min-width: 768px)" },
-    desktop: { "@media": "screen and (min-width: 1024px)" },
+    tablet: { "@media": mediaQueries.tablet },
+    desktop: { "@media": mediaQueries.desktop },
+    wide: { "@media": mediaQueries.wide },
   },
   defaultCondition: "mobile",
   properties: {
@@ -39,9 +41,6 @@ const responsiveProperties = defineProperties({
     marginLeft: vars.space,
     marginRight: vars.space,
     borderRadius: vars.radius,
-    borderColor: vars.color,
-    borderWidth: ["1px", "2px", "3px"],
-    borderStyle: ["solid"],
     background: vars.color,
     color: vars.color,
   },
@@ -52,17 +51,31 @@ const responsiveProperties = defineProperties({
     m: ["marginTop", "marginBottom", "marginLeft", "marginRight"],
     mx: ["marginLeft", "marginRight"],
     my: ["marginTop", "marginBottom"],
+  },
+});
+
+const staticProperties = defineProperties({
+  properties: {
+    borderColor: vars.color,
+    borderWidth: ["1px", "2px", "3px"],
+    borderStyle: ["solid"],
+  },
+  shorthands: {
     border: ["borderWidth", "borderStyle", "borderColor"],
   },
 });
 
-export const sprinkles = createSprinkles(responsiveProperties);
+export const sprinkles = createSprinkles(
+  responsiveProperties,
+  staticProperties,
+);
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];
 
 export type Space = keyof (typeof vars)["space"];
 export type AlignItems = Parameters<typeof sprinkles>[0]["alignItems"];
 export type JustifyContent = Parameters<typeof sprinkles>[0]["justifyContent"];
+export type ResponsiveSpace = Sprinkles["gap"];
 
 export type IconSize = keyof (typeof vars)["icon"]["size"];
 export type StrokeWidth = keyof (typeof vars)["icon"]["strokeWidth"];

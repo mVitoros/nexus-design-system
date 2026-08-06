@@ -54,10 +54,10 @@ export const Pill = ({
       borderStyle="solid"
       borderWidth="1px"
       display="inline-block"
-      px="md"
-      py="xxs"
+      px={{ mobile: "sm", tablet: "md", desktop: "lg" }}
+      py={{ mobile: "xxs", tablet: "xs", desktop: "sm" }}
     >
-      <Inline gap="xxs">
+      <Inline gap={{ mobile: "xxs", tablet: "xs", desktop: "sm" }}>
         <Typography fontStyle="bodySm">{label}</Typography>
         {isInteractive && isActive && (
           <Icon name="close" size="small" color="inherit" />

@@ -27,8 +27,8 @@ export const Button = ({
       as="button"
       type={type}
       className={styles}
-      px={"md"}
-      py={"sm"}
+      px={{ mobile: "sm", tablet: "md", desktop: "lg" }}
+      py={{ mobile: "xs", tablet: "sm", desktop: "md" }}
       disabled={disabled}
       {...nativeProps}
     >

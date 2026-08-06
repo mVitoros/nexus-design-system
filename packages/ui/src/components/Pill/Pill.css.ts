@@ -2,8 +2,7 @@ import { vars } from "@nexus/tokens";
 import { style, styleVariants } from "@vanilla-extract/css";
 
 const basePill = style({
-  transition:
-    "background-color 160ms ease, color 160ms ease, border-color 160ms ease",
+  transition: vars.transition.baseTransition,
   cursor: "default",
 });
 
@@ -63,7 +62,7 @@ export const buttonStyles = style({
       opacity: 0.6,
     },
     "&:focus-visible": {
-      outline: `${vars.space.xxs} solid ${vars.color.focusRing}`,
+      outline: `${vars.borderWidth.focusRing} ${vars.borderStyle.solid} ${vars.color.focusRing}`,
     },
   },
 });

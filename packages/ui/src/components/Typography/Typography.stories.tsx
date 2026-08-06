@@ -94,3 +94,25 @@ export const BodyScale: Story = {
     </Stack>
   ),
 };
+
+export const ResponsivePreview: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Typography scales up at tablet and desktop breakpoints with intrinsic defaults.",
+      },
+    },
+  },
+  render: () => (
+    <Stack gap="sm" as="section">
+      <Typography as="h2" fontStyle="headingLg">
+        Responsive Heading
+      </Typography>
+      <Typography as="span" fontStyle="bodyMd">
+        Resize the viewport to observe larger typography at tablet and desktop
+        breakpoints.
+      </Typography>
+    </Stack>
+  ),
+};

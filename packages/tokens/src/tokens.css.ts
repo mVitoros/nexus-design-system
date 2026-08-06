@@ -63,6 +63,17 @@ export const primitiveSpace = {
   xxxl: "4rem",
 } as const;
 
+export const primitiveBorderWidth = {
+  sm: "1px",
+  md: "2px",
+  lg: "3px",
+  xl: "4px",
+};
+
+export const primitiveBorderStyle = {
+  solid: "solid",
+};
+
 export const primitiveRadius = {
   sm: "0.25rem",
   md: "0.5rem",
@@ -161,6 +172,16 @@ const sharedTypography = {
   },
 } as const;
 
+const semanticBorderWidth = {
+  default: primitiveBorderWidth.sm,
+  focusRing: primitiveBorderWidth.xl,
+} as const;
+
+const semanticTransitions = {
+  baseTransition:
+    "background-color 160ms ease, color 160ms ease, border-color 160ms ease",
+} as const;
+
 const lightSemanticColors = {
   background: primitiveColors.slate[0],
   surface: "#ffffff",
@@ -208,6 +229,13 @@ export const vars = createThemeContract({
     success: null,
     danger: null,
     focusRing: null,
+  },
+  borderWidth: {
+    default: null,
+    focusRing: null,
+  },
+  borderStyle: {
+    solid: null,
   },
   space: {
     xxs: null,
@@ -292,10 +320,15 @@ export const vars = createThemeContract({
       },
     },
   },
+  transition: {
+    baseTransition: null,
+  },
 });
 
 export const lightTheme = createTheme(vars, {
   color: lightSemanticColors,
+  borderWidth: semanticBorderWidth,
+  borderStyle: primitiveBorderStyle,
   space: {
     xxs: primitiveSpace.xxs,
     xs: primitiveSpace.xs,
@@ -332,10 +365,13 @@ export const lightTheme = createTheme(vars, {
     },
   },
   typography: sharedTypography,
+  transition: semanticTransitions,
 });
 
 export const darkTheme = createTheme(vars, {
   color: darkSemanticColors,
+  borderWidth: semanticBorderWidth,
+  borderStyle: primitiveBorderStyle,
   space: {
     xxs: primitiveSpace.xxs,
     xs: primitiveSpace.xs,
@@ -372,4 +408,5 @@ export const darkTheme = createTheme(vars, {
     },
   },
   typography: sharedTypography,
+  transition: semanticTransitions,
 });
